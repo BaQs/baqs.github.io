@@ -1,0 +1,8 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      { "appIDs": ["G92NG7Z756.fr.ourdouille.melli"], "components": [ { "/": "/melli/c*", "comment": "Lien de configuration Melli" } ] }
+    ]
+  }
+}

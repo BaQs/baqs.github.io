@@ -1,0 +1,15 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Configurer Melli</title>
+<style>body{font-family:-apple-system,system-ui,sans-serif;max-width:640px;margin:48px auto;padding:0 16px;color:#2B171C;background:#F5EFEA}a.b{display:inline-block;margin:8px 0;padding:14px 20px;border-radius:27px;background:#4E252B;color:#fff;text-decoration:none;font-weight:600}</style></head>
+<body>
+<h1 style="color:#4E252B">Configurer Melli</h1>
+<p>Ce lien contient la configuration de Melli (accès à la glycémie, parents à appeler), chiffrée. Il faut le <b>code à 6 chiffres</b> que le parent donne de vive voix.</p>
+<p id="ok" hidden>Si Melli est installée, elle devrait s'ouvrir toute seule. Sinon :</p>
+<p><a class="b" id="open" href="#">Ouvrir dans Melli</a></p>
+<p><a class="b" href="https://testflight.apple.com/join/7vzMnSq2" style="background:#C9AD7B;color:#2B171C">Installer Melli (TestFlight)</a><br><small>Après l'installation, rouvre ce lien : Melli le lira.</small></p>
+<p><small>Rien n'est envoyé à ce site : la configuration reste dans le lien, après le dièse, et ne quitte pas le téléphone.</small></p>
+<script>
+var h=location.hash.slice(1);
+if(h){document.getElementById('ok').hidden=false;document.getElementById('open').href='melli://config#'+h;}
+else{document.getElementById('open').hidden=true;}
+</script>
+</body></html>

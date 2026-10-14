@@ -1,0 +1,198 @@
+/* Melli web : les couleurs de l'app iPhone (Palette.swift), en clair et en sombre selon le système. */
+:root {
+  color-scheme: light;
+  --bg: #F5EFEA;
+  --card: #FFFFFF;
+  --line: rgba(78, 37, 43, 0.12);
+  --ink: #2A1A1D;
+  --sub: #7A6468;
+  --accent: #4E252B;
+  --gold: #C9AD7B;
+  --in-range: #3E7D5E;
+  --high: #C97B2A;
+  --low: #B5323F;
+  --stale: #5F6B82;
+  --heat-low: #1F3A93;
+  --heat-very-low: #13245E;
+  --heat-high: rgba(201, 123, 42, 0.75);
+  --band: rgba(62, 125, 94, 0.13);
+  --cone: rgba(201, 173, 123, 0.22);
+  --grid: rgba(42, 26, 29, 0.10);
+  --agp-outer: rgba(78, 37, 43, 0.12);
+  --agp-inner: rgba(78, 37, 43, 0.26);
+  --fill-in-range: #3E7D5E;
+  --fill-high: #C97B2A;
+  --fill-low: #B5323F;
+  --fill-stale: #5F6B82;
+  --night: #E06140;
+  --night-dim: #C9614A;
+  --night-bg: #000000;
+  --night-band: rgba(224, 97, 64, 0.10);
+  --night-cone: rgba(224, 97, 64, 0.16);
+  --night-grid: rgba(201, 97, 74, 0.18);
+  --rond: ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --texte: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #000000;
+    --card: #121012;
+    --line: rgba(201, 173, 123, 0.20);
+    --ink: #F3E9E4;
+    --sub: #9C8E90;
+    --accent: #A8894F;
+    --in-range: #7FBF9B;
+    --high: #E49A4E;
+    --low: #E05A66;
+    --stale: #8E9AB3;
+    --heat-low: #3D6BF5;
+    --heat-very-low: #2447C7;
+    --heat-high: rgba(228, 154, 78, 0.75);
+    --band: rgba(127, 191, 155, 0.12);
+    --grid: rgba(243, 233, 228, 0.10);
+    --agp-outer: rgba(168, 137, 79, 0.16);
+    --agp-inner: rgba(168, 137, 79, 0.34);
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.45 var(--texte);
+  padding: env(safe-area-inset-top, 0px) 16px calc(env(safe-area-inset-bottom, 0px) + 24px);
+}
+main { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; padding-top: 8px; }
+h1 { font-size: 28px; margin: 4px 0; }
+h2 { font-size: 17px; margin: 0; }
+p { margin: 0; }
+button, input, select, textarea { font: inherit; color: inherit; }
+
+/* La navigation : en haut, en pastilles, comme les onglets de l'app. */
+nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2;
+  max-width: 980px; margin: 0 auto; padding: 10px 0;
+  display: flex; gap: 6px; flex-wrap: wrap; background: var(--bg);
+}
+nav a {
+  padding: 7px 14px; border-radius: 999px; text-decoration: none; color: var(--sub); font-weight: 600; font-size: 14px;
+}
+nav a.actif { background: var(--card); color: var(--accent); box-shadow: 0 0 0 1px var(--line); }
+nav a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.carte { background: var(--card); border-radius: 22px; padding: 14px 16px; box-shadow: 0 0 0 1px var(--line); display: flex; flex-direction: column; gap: 10px; }
+.ligne { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.espace { flex: 1; }
+.sous { color: var(--sub); font-size: 13px; }
+.centre { text-align: center; }
+.fort { font-weight: 700; }
+.grand { font: 700 26px/1.1 var(--rond); font-variant-numeric: tabular-nums; }
+.legende { color: var(--sub); font-size: 12px; }
+.erreur { color: var(--low); font-weight: 600; font-size: 14px; }
+.erreur:empty { display: none; }
+.avertissement { background: rgba(201, 173, 123, 0.22); border-radius: 14px; padding: 10px 12px; font-size: 14px; }
+
+/* La grande carte de la glycémie actuelle. */
+.current { border-radius: 26px; padding: 14px 18px 16px; color: #fff; display: flex; flex-direction: column; gap: 6px; background: var(--fill-stale); }
+.current.cible { background: var(--fill-in-range); }
+.current.haute { background: var(--fill-high); }
+.current.basse { background: var(--fill-low); }
+.current-haut { display: flex; justify-content: space-between; font-weight: 600; font-size: 14px; opacity: 0.92; }
+.current-valeur { display: flex; align-items: baseline; gap: 6px 10px; flex-wrap: wrap; }
+.current .nombre { font: 700 64px/1 var(--rond); font-variant-numeric: tabular-nums; }
+.current .nombre.petit { font-size: 30px; }
+.current .unite { font-weight: 600; opacity: 0.85; }
+.current .fleche { font: 700 30px/1 var(--rond); width: 46px; height: 46px; display: inline-grid; place-items: center; border-radius: 50%; background: rgba(255, 255, 255, 0.22); align-self: center; }
+.current .details { display: flex; flex-direction: column; margin-left: auto; text-align: right; font-size: 14px; }
+.current .erreur { color: #fff; background: rgba(0, 0, 0, 0.18); border-radius: 10px; padding: 6px 10px; }
+.barre { text-decoration: line-through; text-decoration-thickness: 3px; }
+
+/* Les choix en pastilles (3 h / 6 h…, Auj. / 24 h). */
+.segments { display: flex; gap: 4px; background: var(--grid); border-radius: 12px; padding: 3px; }
+.segments button { flex: 1; border: 0; background: transparent; border-radius: 9px; padding: 6px 10px; font-weight: 600; color: var(--sub); cursor: pointer; }
+.segments button.actif { background: var(--card); color: var(--ink); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12); }
+.segments.petits { flex: 0 0 auto; }
+.segments.petits button { padding: 3px 10px; font-size: 13px; }
+
+canvas.glycemie { width: 100%; height: 300px; display: block; touch-action: pan-y; cursor: crosshair; }
+canvas.agp { width: 100%; height: 220px; display: block; }
+canvas.mini { width: 100%; height: 70px; display: block; }
+@media (min-width: 760px) { canvas.glycemie { height: 380px; } }
+
+.pastille { display: inline-block; width: 14px; height: 9px; border-radius: 2px; vertical-align: middle; }
+.pastille.bande { background: var(--band); box-shadow: inset 0 0 0 1px var(--in-range); }
+.pastille.prevision { height: 2px; background: repeating-linear-gradient(90deg, var(--gold) 0 3px, transparent 3px 6px); }
+
+/* Le temps dans la cible. */
+.barre-cible { display: flex; gap: 2px; height: 10px; border-radius: 999px; overflow: hidden; margin: 2px 0 4px; }
+.barre-cible span { min-width: 2px; }
+.barre-cible .tres-bas { background: var(--heat-very-low); }
+.barre-cible .bas { background: var(--heat-low); }
+.barre-cible .cible { background: var(--in-range); }
+.barre-cible .haut { background: var(--heat-high); }
+.barre-cible .tres-haut { background: var(--low); }
+
+.tuiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+.tuile { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 16px; background: var(--bg); }
+
+/* Heure par heure : une ligne par jour, une case par heure. */
+.chaleur { display: grid; grid-template-columns: 48px repeat(24, 1fr); gap: 2px; align-items: center; }
+.chaleur .heure { font-size: 9px; color: var(--sub); white-space: nowrap; overflow: visible; }
+.chaleur .jour { font-size: 11px; color: var(--sub); white-space: nowrap; }
+.case { display: inline-block; height: 14px; min-width: 6px; border-radius: 4px; vertical-align: middle; }
+.legende .case, .sous .case { width: 12px; height: 12px; border-radius: 3px; }
+.chaleur.fine .case { height: 5px; border-radius: 1px; }
+.case.grande { height: 18px; margin-top: 6px; }
+.case.none { background: var(--grid); }
+.case.low { background: var(--heat-low); }
+.case.inRange { background: var(--in-range); }
+.case.high { background: var(--heat-high); }
+.case.veryHigh { background: var(--low); }
+
+/* Les nuits. */
+.nuits { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+.chiffres { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.chiffre { display: flex; flex-direction: column; }
+.chiffre .valeur { font: 700 17px/1.2 var(--rond); }
+.valeur.basse { color: var(--heat-low); }
+.valeur.haute { color: var(--low); }
+
+/* Formulaires. */
+.formulaire label { display: flex; flex-direction: column; gap: 4px; font-weight: 600; font-size: 14px; }
+.formulaire input, .formulaire select, .formulaire textarea {
+  border: 1px solid var(--line); border-radius: 12px; padding: 9px 12px; background: var(--bg); font-weight: 400; width: 100%;
+}
+.formulaire textarea { resize: vertical; font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
+.case-a-cocher { display: flex; gap: 8px; align-items: center; color: var(--sub); font-size: 14px; }
+.accueil-config { max-width: 560px; margin: 24px auto; display: flex; flex-direction: column; gap: 14px; }
+.accueil-config h1 { color: var(--accent); font-size: 40px; }
+.bouton { border: 1px solid var(--accent); color: var(--accent); background: transparent; border-radius: 999px; padding: 9px 18px; font-weight: 600; cursor: pointer; align-self: flex-start; }
+.bouton.plein { background: var(--accent); color: #fff; }
+.bouton.danger { border-color: var(--low); color: var(--low); }
+.bouton:disabled { opacity: 0.6; cursor: default; }
+.lien { border: 0; background: none; color: var(--accent); font-weight: 600; cursor: pointer; padding: 0; align-self: flex-start; }
+
+/* L'écran de nuit : noir, orange sombre, rien qui éblouisse. */
+body.mode-nuit { background: var(--night-bg); }
+.ecran-nuit { color: var(--night); display: flex; flex-direction: column; gap: 14px; min-height: 100vh; padding: 12px 0; }
+.nuit-haut { display: flex; justify-content: space-between; color: var(--night-dim); font-weight: 600; }
+.nuit-valeur { display: flex; align-items: center; justify-content: center; gap: 16px; font: 700 clamp(96px, 26vw, 220px)/1 var(--rond); font-variant-numeric: tabular-nums; margin-top: 4vh; }
+.nuit-fleche { font-size: 0.45em; }
+.nuit-meta { text-align: center; color: var(--night-dim); font-size: 17px; font-weight: 600; }
+.ecran-nuit canvas.glycemie { height: 240px; }
+.segments.sombres { background: rgba(224, 97, 64, 0.10); align-self: center; }
+.segments.sombres button { color: var(--night-dim); }
+.segments.sombres button.actif { background: rgba(224, 97, 64, 0.22); color: var(--night); box-shadow: none; }
+.nuit-bas { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: auto; }
+.bouton.sombre { border-color: rgba(224, 97, 64, 0.45); color: var(--night); align-self: center; }
+.nuit-avertissement { color: var(--night-dim); font-size: 12px; text-align: center; max-width: 420px; }
+
+@media (max-width: 480px) {
+  .current .nombre { font-size: 52px; }
+  .current .details { margin-left: 0; text-align: left; flex-basis: 100%; }
+  .chiffres { grid-template-columns: repeat(2, 1fr); }
+  .chaleur { grid-template-columns: 40px repeat(24, 1fr); gap: 1px; }
+}

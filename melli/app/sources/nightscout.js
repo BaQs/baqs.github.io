@@ -49,7 +49,10 @@ export class Nightscout {
     try {
       response = await this.fetch(url, { headers, cache: "no-store", credentials: "omit", referrerPolicy: "no-referrer" });
     } catch {
-      throw new NightscoutError("Nightscout injoignable (réseau, adresse, ou site qui refuse les navigateurs).", "network");
+      // Un refus CORS et une panne réseau se ressemblent pour la page : les deux pistes sont dites.
+      throw new NightscoutError("Nightscout injoignable depuis ce navigateur. Si l'adresse est bonne, le site refuse sans doute "
+        + "les navigateurs : sur le serveur Nightscout, ajouter « cors » à la variable ENABLE, et utiliser un jeton en lecture "
+        + "plutôt que l'API secret.", "network");
     }
     if (response.status === 401 || response.status === 403) throw new NightscoutError("Accès refusé : vérifie le jeton ou l'API secret.", "unauthorized");
     if (!response.ok) throw new NightscoutError(`Nightscout a répondu ${response.status}.`, "http");

@@ -7,6 +7,7 @@ import { merge } from "./core/series.js";
 import { Nightscout } from "./sources/nightscout.js";
 import { forget, loadConfig, loadReadings, saveConfig, saveReadings } from "./store.js";
 import { h, render } from "./ui/h.js";
+import { mountAdvice } from "./ui/advice.js";
 import { mountHistory } from "./ui/history.js";
 import { mountHome } from "./ui/home.js";
 import { mountNight } from "./ui/night.js";
@@ -17,6 +18,7 @@ import { mountSetup } from "./ui/setup.js";
 const ROUTES = {
   accueil: { title: "Accueil", mount: mountHome },
   historique: { title: "Historique", mount: mountHistory },
+  conseils: { title: "Conseils", mount: mountAdvice },
   nuits: { title: "Nuits", mount: mountNights },
   nuit: { title: "Écran de nuit", mount: mountNight, bare: true },
   reglages: { title: "Réglages", mount: mountSettings },
@@ -140,13 +142,14 @@ const app = {
       this.view = mountSetup(main, this, { prefill: this.setupPrefill });
       return;
     }
-    const name = location.hash.slice(1);
+    // « #conseils/hypo-legere » : un écran et son détail.
+    const [name, param] = location.hash.slice(1).split("/");
     this.route = ROUTES[name] ? name : "accueil";
     const route = ROUTES[this.route];
     document.title = `${route.title} · ${this.config.patientName || "Melli"}`;
     nav.hidden = !!route.bare;
     drawNav(this.route);
-    this.view = route.mount(main, this);
+    this.view = route.mount(main, this, { param: param ? decodeURIComponent(param) : null });
     this.view.update(this.state);
   },
 };

@@ -196,3 +196,21 @@ body.mode-nuit { background: var(--night-bg); }
   .chiffres { grid-template-columns: repeat(2, 1fr); }
   .chaleur { grid-template-columns: 40px repeat(24, 1fr); gap: 1px; }
 }
+
+/* Conseils : les cas de figure, le cas du moment en tête, et le détail d'un cas. */
+h3 { font-size: 14px; margin: 6px 0 2px; color: var(--sub); text-transform: uppercase; letter-spacing: 0.04em; }
+.categorie { display: flex; flex-direction: column; gap: 2px; }
+.cas { display: flex; flex-direction: column; gap: 1px; padding: 8px 10px; border-radius: 12px; text-decoration: none; color: var(--ink); }
+.cas:hover, .cas:focus-visible { background: var(--bg); }
+.cas-titre { font-weight: 600; }
+.cas .sous { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.cas.actuel { background: var(--band); box-shadow: inset 0 0 0 1px var(--in-range); }
+.cas.actuel .sous { -webkit-line-clamp: 4; color: var(--ink); }
+.en-ce-moment { display: flex; flex-direction: column; gap: 4px; }
+.urgence { color: var(--low); }
+.constat { display: flex; flex-direction: column; gap: 2px; }
+.phrase { font: 600 19px/1.35 var(--texte); }
+.escalade { box-shadow: 0 0 0 1.5px var(--low); }
+.escalade h2, .escalade .fort { color: var(--low); }
+.urgence-bouton { background: var(--low); border-color: var(--low); text-decoration: none; }
+ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }

@@ -6,11 +6,10 @@
 <p id="ok" hidden>Si Melli est installée, elle devrait s'ouvrir toute seule. Sinon :</p>
 <p><a class="b" id="open" href="#">Ouvrir dans Melli</a></p>
 <p><a class="b" href="https://testflight.apple.com/join/7vzMnSq2" style="background:#C9AD7B;color:#2B171C">Installer Melli (TestFlight)</a><br><small>Après l'installation, rouvre ce lien : Melli le lira.</small></p>
-<p id="web" hidden><a class="b" id="openweb" href="/melli/app/" style="background:transparent;color:#4E252B;border:2px solid #4E252B">Sur un ordinateur : Melli web</a><br><small>La glycémie en lecture seule dans le navigateur, sans alarme. Le lien y est déchiffré, sur l'ordinateur.</small></p>
 <p><small>Rien n'est envoyé à ce site : la configuration reste dans le lien, après le dièse, et ne quitte pas le téléphone.</small></p>
 <script>
 var h=location.hash.slice(1);
-if(h){document.getElementById('ok').hidden=false;document.getElementById('open').href='melli://config#'+h;document.getElementById('web').hidden=false;document.getElementById('openweb').href='/melli/app/#'+h;}
+if(h){document.getElementById('ok').hidden=false;document.getElementById('open').href='melli://config#'+h;}
 else{document.getElementById('open').hidden=true;}
 </script>
 </body></html>

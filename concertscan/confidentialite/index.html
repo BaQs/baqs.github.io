@@ -19,7 +19,7 @@
 <li>Les salles trouvées autour de tes soirées, les fuseaux horaires de tes voyages, et ce que l'analyse d'images de l'iPhone (Vision) a vu sur quelques vignettes : une scène, un match.</li>
 <li>Tes réponses (« J'y étais », « Pas moi »…), les artistes notés, les lieux écartés.</li>
 <li>Ce qui a été lu sur tes billets : artiste, salle, ville, date. Le fichier du billet n'est pas gardé.</li>
-<li>Les concerts lus sur les pages Wikipédia des salles, et les suggestions setlist.fm déjà obtenues.</li>
+<li>Les concerts lus sur les pages Wikipédia des salles et des tournées, les événements OpenAgenda trouvés autour de tes soirées, et les suggestions setlist.fm déjà obtenues.</li>
 <li>Tes accès (mot de passe du NAS, mot de passe d'application de ta messagerie, clé setlist.fm), rangés dans le trousseau chiffré d'iOS.</li>
 </ul>
 <p>Sources › Effacer les données de ConcertScan supprime tout cela, accès compris. Supprimer l'app efface aussi ces données ; des accès rangés dans le trousseau d'iOS peuvent y rester jusqu'à la réinitialisation de l'iPhone.</p>
@@ -28,14 +28,16 @@
 <ul>
 <li><b>Apple (Plans)</b> : la position approximative de tes soirées (arrondie à environ 500 m), pour trouver les salles autour, et celle de tes photos de voyage, pour leur fuseau horaire et leur ville.</li>
 <li><b>OpenStreetMap</b> (overpass-api.de) : la même position approximative, pour compléter la liste des salles.</li>
-<li><b>Wikipédia</b> : le nom des salles, pour lire les concerts qu'elles ont accueillis.</li>
+<li><b>Wikipédia</b> : le nom des salles, et la date de tes soirées probables, pour lire les concerts qu'elles ont accueillis et les tournées qui y sont passées.</li>
+<li><b>OpenAgenda</b> (sa copie en open data, public.opendatasoft.com) : la position approximative de tes soirées probables (arrondie à environ 100 m) et leur date, pour lire les événements publics annoncés autour.</li>
+<li><b>Internet Archive</b> (web.archive.org), seulement quand tu touches « Chercher dans les archives du site de la salle » : l'adresse du site de la salle et la date de la soirée, pour ouvrir le site tel qu'il était ce jour-là.</li>
 <li><b>setlist.fm</b>, seulement si tu ajoutes ta propre clé : la date et la ville d'une soirée, quand tu réponds « J'y étais ».</li>
 <li><b>Ton NAS Synology</b>, seulement si tu le branches : ton identifiant et ton mot de passe, envoyés à ton NAS et à lui seul.</li>
 <li><b>Ta messagerie</b>, seulement si tu la branches : ton adresse et ton mot de passe d'application, envoyés à ton serveur de messagerie, qui est lu en lecture seule (rien n'est marqué comme lu ni effacé). Seuls les billets PDF sont téléchargés.</li>
 <li><b>Une page de programmation</b> dont tu colles l'adresse : l'iPhone l'ouvre pour y lire les artistes.</li>
 <li><b>Apple Intelligence (Private Cloud Compute)</b>, seulement si tu actives Sources › Regard d'Apple Intelligence : quatre vignettes par soirée possible, avec sa date et le nom des salles proches, envoyées aux serveurs d'Apple Intelligence, qui les traitent sans les garder. Le développeur n'y a pas accès.</li>
 </ul>
-<p>Ces services appliquent leurs propres politiques de confidentialité. L'analyse des images (Vision) et la lecture des billets et des programmations (Apple Intelligence) se font sur l'iPhone. Les rappels « ce jour-là » sont des notifications programmées sur l'iPhone. Quand tu partages une affiche, c'est toi qui choisis où elle va.</p>
+<p>Ces services appliquent leurs propres politiques de confidentialité. L'analyse des images (Vision) et la lecture des billets et des programmations (Apple Intelligence) se font sur l'iPhone. Si tu actives Sources › Ton agenda, ton agenda est lu sur l'iPhone, en lecture seule : rien n'en sort. Les rappels « ce jour-là » sont des notifications programmées sur l'iPhone. Quand tu partages une affiche, c'est toi qui choisis où elle va.</p>
 
 <h2>Tes droits</h2>
 <p>Le développeur ne détient aucune donnée te concernant : il n'a rien à consulter, corriger ou effacer. Tes données sont sur ton iPhone, et chez les services que tu as choisis. Pour toute question : <a href="mailto:tordre.tradition1q@icloud.com">tordre.tradition1q@icloud.com</a>.</p>
@@ -44,8 +46,8 @@
 <div id="en" lang="en">
 <h2>Privacy policy, in English</h2>
 <p>ConcertScan is a free iPhone app, developed privately by Pierre Ourdouillé. There is no ConcertScan account and no ConcertScan server: the developer receives none of your data. No ads, no analytics, no tracking.</p>
-<p><b>Kept on your iPhone:</b> the list of your photos read at the last scan (identifier, date, place, type, not the photos), venues found, time zones, what on-device image analysis saw on a few thumbnails, your answers, what was read on your tickets (not the ticket files), Wikipedia and setlist.fm results, and your credentials in the iOS Keychain. Sources › Erase ConcertScan data removes all of it.</p>
-<p><b>Leaves your iPhone:</b> approximate locations of your evenings (about 500 m) to Apple Maps and OpenStreetMap to find venues, and of travel photos to Apple for time zones; venue names to Wikipedia; a date and city to setlist.fm if you add your own key; your NAS credentials to your NAS only; your mail credentials to your mail server only, read-only; a line-up page you paste is opened by the iPhone. Image analysis and reading tickets or line-ups happen on the iPhone. Only if you turn on Sources › Apple Intelligence review: four thumbnails per possible evening, with its date and nearby venue names, are sent to Apple Intelligence's Private Cloud Compute servers, which process them without keeping them; the developer has no access.</p>
+<p><b>Kept on your iPhone:</b> the list of your photos read at the last scan (identifier, date, place, type, not the photos), venues found, time zones, what on-device image analysis saw on a few thumbnails, your answers, what was read on your tickets (not the ticket files), Wikipedia, OpenAgenda and setlist.fm results, and your credentials in the iOS Keychain. Sources › Erase ConcertScan data removes all of it.</p>
+<p><b>Leaves your iPhone:</b> approximate locations of your evenings (about 500 m) to Apple Maps and OpenStreetMap to find venues, and of travel photos to Apple for time zones; venue names and the dates of likely evenings to Wikipedia (venue and tour pages); approximate locations (about 100 m) and dates of likely evenings to OpenAgenda's open data copy (public.opendatasoft.com) to read public events nearby; a venue's website address and an evening's date to the Internet Archive, only when you tap “Search the venue's website archives”; a date and city to setlist.fm if you add your own key; your NAS credentials to your NAS only; your mail credentials to your mail server only, read-only; a line-up page you paste is opened by the iPhone. Image analysis and reading tickets or line-ups happen on the iPhone. If you turn on Sources › Your calendar, your calendar is read on the iPhone, read-only, and nothing leaves it. Only if you turn on Sources › Apple Intelligence review: four thumbnails per possible evening, with its date and nearby venue names, are sent to Apple Intelligence's Private Cloud Compute servers, which process them without keeping them; the developer has no access.</p>
 <p>Questions: <a href="mailto:tordre.tradition1q@icloud.com">tordre.tradition1q@icloud.com</a></p>
 </div>
 
